@@ -1,0 +1,88 @@
+BE and FE closer -> benefit?
+
+render on server -> cache across users
+
+reduce for client side
+
+
+
+test 2 rendering ways
+- what if static build but page is SSR?
+
+test SEO with above
+
+
+deploy with domain name
+
+
+https support
+
+
+redux
+
+
+nginx
+
+authentication
+
+
+Image Optimization
+
+
+WPA: app on mobile
+
+
+
+not related: React helmet?
+- XSS, CRSF
+
+
+
+
+
+session management
+1. stateless
+2. database
+
+
+
+authorization
+1. optimistic: đơn giản, check hide/enable
+2. secure: kỹ càng, check redirect, sensitive data
+
+
+
+
+
+- nếu check bằng middleware thì chỉ check cookie data, không check trong db vì performance
+
+3 recommendations
+
+
+
+2 tier security check, session then permission
+
+
+
+deployment:
+1. CI/CD: github actions
+    + automaic deploy by branch name
+2. free domain name
+3. nginx
+4. Server: AWS Lightsail
+    + có cần VPC không?
+5. DB
+    + have container for it first
+    + can connect to db from RDS will be future
+6. backend using api routes first
+    + use lambda later
+
+có dùng pm2 không?
+
+
+
+
+problem
+- chưa push lên được git
+- chưa có cert
+- chưa start được doker

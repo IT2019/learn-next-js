@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Database Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-section {
+            flex: 1;
+        }
+
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-section input, .form-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        .form-section input[readonly], .form-section select[disabled] {
+            background-color: #f9f9f9;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .advanced-settings {
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .advanced-settings h3, .encryption-settings h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info-icon {
+            color: #666;
+            cursor: help;
+            margin-left: 5px;
+        }
+
+        .encryption-settings label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .encryption-settings input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .wallet-select {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .read-only-note {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .button-group {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .test-button, .save-button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .test-button {
+            background-color: #a4508b;
+            color: white;
+        }
+
+        .save-button {
+            background-color: #75507b;
+            color: white;
+        }
+
+        .test-button:hover, .save-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-section">
+                <label for="connection-name">Connection name</label>
+                <input type="text" id="connection-name" value="as.oracle_2" readonly>
+
+                <label for="username">Username</label>
+                <input type="text" id="username" value="SYSDBA" readonly>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" value="*****" readonly>
+
+                <label for="port">Port</label>
+                <input type="text" id="port" value="1521" readonly>
+
+                <label for="database-type">Database type</label>
+                <select id="database-type" disabled>
+                    <option value="oracle">Oracle</option>
+                </select>
+
+                <label for "database-sid">Database / SID</label>
+                <input type="text" id="database-sid" value="ORCLDB" readonly>
+
+                <label for "hostname">Hostname / IP</label>
+                <input type="text" id="hostname" value="10.0.7.10" readonly>
+            </div>
+
+            <div class="form-section advanced-settings">
+                <h3>Advanced Settings</h3>
+                <label for="schema">Schema <span class="info-icon">?</span></label>
+                <input type="text" id="schema" value="SYSDBA" readonly>
+
+                <label for="service-name">Service name (optional) <span class="info-icon">?</span></label>
+                <input type="text" id="service-name" value="ORCLDB.localdomain" readonly>
+
+                <div class="encryption-settings">
+                    <h4>Connection Encryption Settings</h4>
+                    <label>
+                        <input type="radio" name="encryption" value="none" checked> No Encryption
+                    </label>
+                    <label>
+                        <input type="radio" name="encryption" value="nne"> Oracle NNE
+                    </label>
+                    <label>
+                        <input type="radio" name="encryption" value="wallet"> Oracle Wallet
+                    </label>
+                    <select id="oracle-wallet" class="wallet-select" disabled>
+                        <option value="wallet">wallet</option>
+                    </select>
+                </div>
+
+                <label for="data-encoding">Data Encoding (optional) <span class="info-icon">?</span></label>
+                <select id="data-encoding" disabled>
+                    <option value="automatic">Automatic</option>
+                </select>
+
+                <label>
+                    <input type="checkbox" id="read-only" disabled> Read-only connection
+                    <span class="read-only-note">Read-only connections may only be used for data discovery and dry runs.</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="test-button">TEST CONNECTION</button>
+            <button class="save-button">SAVE AND EXIT</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript cơ bản để xử lý các nút bấm (minh họa)
+        document.querySelector('.test-button').addEventListener('click', function() {
+            alert('Testing connection...');
+            // Thêm logic kiểm tra kết nối ở đây
+        });
+
+        document.querySelector('.save-button').addEventListener('click', function() {
+            alert('Saving and exiting...');
+            // Thêm logic lưu và thoát ở đây
+        });
+    </script>
+</body>
+</html>
